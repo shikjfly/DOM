@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>标题标题</title>
+	<style type="text/css">
+		b{
+			color: red;
+		}
+		#example{
+			font-size: 18px;
+		}
+	</style>
+</head>
+<body>
+	<h1>首页搜夜</h1>
+<!-- 11111111111111 -->
+	<p><b><u>1、节点介绍：</u></b></p>
+	<ul>
+		<h4>节点node，分为三种：</h4>
+		<li>元素节点（element node）</li>
+		<li>文本节点（text node）</li>
+		<li>属性节点（attribute node）</li>
+	</ul>
+	
+	<ul>
+		<h4>示例及示例图如下：</h4>
+		<li><h3>< a href="https://www.imooc.com">JavaScript DOM < /a></h3></li>
+		<li><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1527915652872&di=85949d8542e4e34ee7c1cdded9a096a3&imgtype=0&src=http%3A%2F%2Fstatic.mukewang.com%2Fimg%2F52e4bdb80001064c04480196.jpg"></li>
+	</ul>
+<!-- 2222222222222 -->
+	<p><b><u>2、获取元素节点：</u></b></p>
+	<ul>
+		<h4 class="redc yelc">三种:</h4>
+		<li>id语法：document.getElemnetById(id)，根据ID类，返回一个唯一的对象</li>
+		<li>tag语法：element.getElemnetByTagName(tag)，根据tag标签，返回一个对象数组</li>
+		<li>class语法：element.getElemnetByClassName(class)，根据class类，返回一个对象数组</li>
+	</ul>
+	<ul>
+		<h4 class="redc">示例:</h4>
+		<li>document.getElemnetById("psw"); 获取id为psw的元素对象</li>
+		<li>document.getElemnetByTagName("li"); 获取标签为li的一组对象，以数组的形式表现</li>
+		<li>document.getElemnetByClassName("redColor yelColor"); 获取同一个标签元素class为redColor和yelColor的一组对象，以数组的形式表现</li>
+	</ul>
+	<h4>备注：如果要测试是否是对象，可以用typeof看获取到的是不是对象，例如console.log（ typeof document.getElemnetById("psw") ）返回的会是object对象</h4>
+<!-- 3333333333333333 -->
+	<p><b><u>3、获取和设置属性节点：</u></b></p>
+	<ul>
+		<h4>两种:</h4>
+		<li>获取属性语法：object.getAttribute(attribute)</li>
+		<li>设置属性语法：object.setAttribute(attribute,value)</li>
+	</ul>
+	<ul>
+		<h4>示例:</h4>
+		<li>document.getElemnetById("psw").getAttribute("name"); 先获取id为psw的元素对象，然后再对该元素对象操作，即获取属性为name的值</li>
+		<li>document.getElemnetById("psw").setAttribute("name","小宝"); 先获取id为psw的元素对象，然后再对该元素对象操作，即设置属性name的值为小宝</li>
+	</ul>
+	<h4>备注：一定一定要先获取到元素节点的对象，才能对这个对象进行属性的操作，因为属性本来就是在元素节点里面的</h4>
+<!-- 44444444444444444 -->
+	<p><b><u>4、获取元素节点的子元素节点：</u></b></p>
+	<ul>
+		<h4>语法:</h4>
+		<li>获取子元素节点语法：<i>element.childNodes</i></li>
+		<li>获取节点类型：<i>node.nodeType</i></li>
+		<li>获取节点值：<i>node.nodeValue</i></li>
+		<li>firstchild节点：<i>node.firstChild === node.childNode[0]</i></li>
+		<li>lastchild节点：<i>node.lastChild === node.childNode[node.childNode.length -1]</i></li>
+	</ul>
+	<ul>
+		<h4>示例:</h4>
+		<li>document.getElemnetByTagName("body")[0].childNodes; 先获取tag为body的元素<b>对象数组</b>，然后由于页面只有一个body，故取第一个数字[0]，然后再对该元素节点操作，即获取body元素节点下面所有的子节点</li>
+		<li>document.getElemnetByTagName("body")[0].nodeType; 先获取tag为body的元素对象数组，然后由于页面只有一个body，故取第一个数字[0]，然后再对该元素节点操作，即获取body元素是什么nodeType类型，返回值为1；<u><i>元素节点nodeType为1，属性节点nodeType为2，文本节点nodeType为13</i></u></li>
+		<li>document.getElemnetByTagName("body")[0].nodeValue; 先获取tag为body的元素对象数组，然后由于页面只有一个body，故取第一个数字[0]获取body，然后再对该元素节点body操作，由于nodeValue方法返回的是该节点的值，在DOM中主要有三种节点，分别是元素节点、属性节点、文档节点，其中元素节点是没有值得，而属性节点和文档节点是有值的。所以body元素节点的nodeValue是null，需要在body元素节点下面的子节点里面再去找<b>文本节点</b>或者<b>属性节点</b></li>
+	</ul>
+	<h4>备注：空格也是属于childNode节点下面的子元素 <p>	
+		*元素节点的nodeValue是undefined或者是null的，说明的元素节点本身是没有值的。<br>
+		*文本节点的nodeValue是文本的本身，因为文本节点本身是有值的。<br>
+		*属性节点的nodeValue是其的属性值，很明显属性一般来说都是有值的。</p></h4>
+<!-- 555555555555555 -->
+	<p><b><u>5、从h5分离js事件：</u></b></p>
+	<ul>
+		<h4>语法:</h4>
+		<li><i>element.event = action</i></li>
+	</ul>
+	<ul>
+		<h4>示例:</h4>
+		<li>document.getElemnetById("psw").onclick = function(){XXXX}; 先获取id为psw的元素对象，然后再对该元素对象操作，添加click方法</li>
+	</ul>
+	<h4>备注：空格也是属于childNode节点下面的子元素</h4>
+<!-- 666666666666666666 -->
+	<p><b><u>6、创建节点：传统方法document.write 和 innerHTML</u></b></p>
+	<ul>
+		<h4>语法:</h4>
+		<li><i>document.write("XXX")</i>--不推荐</li>
+		<li><i>element.innerHTML("XXX")</i>--简单粗暴</li>
+	</ul>
+	<ul>
+		<h4>示例:</h4>
+		<li>document.getElemnetById("psw").innerTHML = "<'p>创建的文本内容 < /p>" <br>先获取id为psw的元素对象，然后再对该元素对象操作，添加文本</li>
+	</ul>
+	<h4>备注：......</h4>
+<!-- 77777777777777777777 -->
+	<p><b><u>7、创建节点：DOM方法</u></b></p>
+	<ul>
+		<h4>语法:</h4>
+		<li>创建元素节点：<i>document.createElement(nodeName)</i></li>
+		<li>创建文本节点：<i>document.createTextNode(text)</i></li>
+		<li>上面创建的文档碎片挂接到DOM节点树父子元素节点：<i>parent.appendChild(child)</i></li>
+		<li>挂接到DOM节点兄弟元素：<i>parentElement.insertBefore(newElement,targetElement)</i></li>
+	</ul>
+	<ul>
+		<h4>示例:</h4>
+		<li>document.createElement("p")，创建p标签成功，但是属于文档碎片，还没有挂接到DOM树里面去</li>
+		<li>document.createTextNode("创建的文本内容")，创建文本节点成功，但也是属于文档碎片，还没有挂接到DOM树里面去</li>
+		<li>父节点.appendChild(子节点)，<b>document.createElement("p")</b>.appendChild(<b>document.createTextNode("创建的文本内容")</b>) 挂接到父节点下面了</li>
+	</ul>
+	<h4 id="fifty" >备注：appendChild 和 insertBefore 插入的层级关系不一样，一个是父子关系，一个是兄弟关系
+		<b>element.parentNode父节点(element)，element.nextSibling下一个兄弟节点(element)</b></h4>
+
+	<div id="new">2121212</div>
+	<p id="example" style="color: grey; font-family: sans-serif;">
+		示例示例示例
+	</p>
+
+	<script type="text/javascript">
+
+
+		var fifty = document.getElementById("fifty");
+		fifty.onclick = function(){
+			alert("nihao");	
+			document.getElementById("fifty").style.color = "red";
+			fifty.innerHTML = "<h1>sss</h1>";
+			document.getElementById("fifty").style.color = "blue";
+
+		}
+		var p = document.createElement("b");
+		var text = document.createTextNode("你好呀");
+		p.appendChild(text);
+		// fifty.appendChild(p);
+		// fifty.parentNode.insertBefore(p,fifty);
+
+		var request = new XMLHttpRequest();
+		request.open("GET", "object.txt", true);
+		request.onreadystatechange = function(){
+			if (request.readyState == 4) {
+				// alert("收到请求");
+				var para = document.createElement("p");
+				var txt = document.createTextNode(request.responseText);
+				para.appendChild(txt);
+				document.getElementById('new').appendChild(para);
+			}
+		};
+		request.send(null);
+		// alert("执行完毕")
+
+
+		var paras = document.getElementById("example");
+		paras.style.position = "fixed";
+		paras.style.left = "100px";
+		paras.style.top = "100px";
+		setTimeout( "moveMessage()", 1000);
+
+		function moveMessage(){			
+			var paras = document.getElementById("example");
+			var xpos = parseInt( paras.style.left);
+			var ypos = parseInt( paras.style.top);
+			if (xpos == 500 && ypos == 200) {
+				return true;
+			}
+			if (xpos < 500) {
+				xpos++
+			}
+			if (xpos > 500) {
+				xpos--
+			}
+			if (ypos < 500) {
+				ypos++
+			}
+			if (ypos > 500) {
+				ypos--
+			}
+			paras.style.left = xpos + "px";
+			paras.style.top = ypos + "px";
+			paras.style.color = "white";
+			paras.style.background = "red";
+			setTimeout("moveMessage()", 20);
+		}
+
+	</script>
+</body>
+</html>
